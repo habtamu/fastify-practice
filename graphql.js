@@ -33,3 +33,7 @@ const loaders = {
 }
 
 export { schema, resolvers, loaders }
+
+// SELECT owners.*
+// FROM owners
+// WHERE owners.id = ANY (SELECT owner FROM pets WHERE name = 'Max');
