@@ -36,7 +36,7 @@ query sum {
 }
 ```
 
-### 2. Schema
+### 2. Loaders
 ```bash
 https://github.com/anapaulalemos/the-graphql-workshop/blob/master/src/step-02-loaders
 ```
@@ -54,3 +54,16 @@ query {
 }
 
 ```
+
+### 3. Executable Schema
+```bash 
+https://github.com/anapaulalemos/the-graphql-workshop/tree/master/src/step-03-executable-schema
+```
+
+```graphql
+# http://127.0.0.1:3000/graphql
+query  {
+	add(x:4, y:5)
+}
+```
+

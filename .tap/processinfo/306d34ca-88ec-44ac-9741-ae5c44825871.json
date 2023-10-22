@@ -1,5 +1,5 @@
 {
-  "date": "2023-10-22T11:30:34.841Z",
+  "date": "2023-10-22T11:39:42.622Z",
   "argv": [
     "/Users/habtamu.desalegn/.nvm/versions/node/v18.12.1/bin/node",
     "/Users/habtamu.desalegn/Developer/Github/fastify-practice/node_modules/.pnpm/thread-stream@2.4.1/node_modules/thread-stream/lib/worker.js"
@@ -13,17 +13,17 @@
   ],
   "NODE_OPTIONS": "\"--loader=file:///Users/habtamu.desalegn/Developer/Github/fastify-practice/node_modules/.pnpm/@tapjs+processinfo@3.1.5/node_modules/@tapjs/processinfo/dist/esm/loader-legacy.mjs\" \"--no-warnings\"",
   "cwd": "/Users/habtamu.desalegn/Developer/Github/fastify-practice",
-  "pid": 26288,
-  "ppid": 26280,
-  "parent": "a889d89b-c4a2-4686-a9e2-e00ed13f9263",
-  "uuid": "0134eebd-7bfb-4954-8262-b20b9557dfbf",
+  "pid": 27054,
+  "ppid": 27048,
+  "parent": "d5373660-9cf4-4600-9df9-95c2c3a3753a",
+  "uuid": "306d34ca-88ec-44ac-9741-ae5c44825871",
   "files": [
     "/Users/habtamu.desalegn/Developer/Github/fastify-practice/node_modules/.pnpm/thread-stream@2.4.1/node_modules/thread-stream/lib/worker.js",
     "/Users/habtamu.desalegn/Developer/Github/fastify-practice/node_modules/.pnpm/pino-pretty@10.2.3/node_modules/pino-pretty/index.js"
   ],
   "sources": {},
-  "root": "a889d89b-c4a2-4686-a9e2-e00ed13f9263",
+  "root": "d5373660-9cf4-4600-9df9-95c2c3a3753a",
   "code": 0,
   "signal": null,
-  "runtime": 184.465771
+  "runtime": 177.227005
 }

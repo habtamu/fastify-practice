@@ -1,19 +1,12 @@
 import { test } from 'tap'
 import buildServer from '../index.js'
 
-test('should return owner of the pet ', async t => {
+test('should return sum of two numbers', async t => {
   const server = buildServer()
 
   await server.ready()
 
-  const query = `query {
-      pets {
-        name
-        owner {
-          name
-        }
-      }
-    }`
+  const query = 'query { add(x: 3, y:5) }'
 
   const response = await server.inject({
     method: 'POST',
@@ -28,19 +21,6 @@ test('should return owner of the pet ', async t => {
 
   t.equal(errors, undefined)
   t.strictSame(data, {
-    pets: [
-      {
-        name: 'Max',
-        owner: {
-          name: 'Jennifer'
-        }
-      },
-      {
-        name: 'Charlie',
-        owner: {
-          name: 'Simon'
-        }
-      }
-    ]
+    add: 8
   })
 })
