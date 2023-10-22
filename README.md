@@ -91,6 +91,7 @@ query  {
 
 ### 4. n + 1 Problem
 
+- Use a single database query to get owners for all pets
 ```bash
 https://github.com/anapaulalemos/the-graphql-workshop/tree/master/src/step-04-n%2B1
 ```
@@ -110,9 +111,9 @@ Note: Migration
     "username": "postgres",
     "password": "0911362311"
 }
-4. create folder migrations/001.do.sql, 002.do.sql
-5. write sql in 001.do.sql and 002.do.sql
-6. run command: pnpm run db:migrate
+1. create folder migrations/001.do.sql, 002.do.sql
+2. write sql in 001.do.sql and 002.do.sql
+3. run command: pnpm run db:migrate
 ```
 
 ```graphql
@@ -128,4 +129,18 @@ query {
 		}
 	}
 }
+```
+
+```sql
+SELECT owners.*
+FROM owners
+WHERE owners.id = ANY (SELECT owner FROM pets WHERE name = 'Max');
+```
+
+```javascript
+SELECT owners.*
+FROM owners
+INNER JOIN pets
+ON pets.owner = owners.id
+AND pets.name = ANY(${petNames})
 ```
