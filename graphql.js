@@ -1,13 +1,42 @@
+const pets = [
+  { name: 'Max' },
+  { name: 'Charlie' }
+]
+
+const owners = {
+  Max: { name: 'Jennifer' },
+  Charlie: { name: 'Simon' }
+}
+
 const schema = `
+  type Person {
+    name: String!
+  }
+
+  type Pet {
+    name: String!
+    owner: Person
+  }
+
   type Query {
-    add(x: Int, y: Int): Int
+    pets: [Pet]
   }
 `
 
 const resolvers = {
   Query: {
-    add: async (_, { x, y }) => x + y
+    pets () {
+      return pets
+    }
   }
 }
 
-export { schema, resolvers }
+const loaders = {
+  Pet: {
+    async owner (queries) {
+      return queries.map(({ obj: pet }) => owners[pet.name])
+    }
+  }
+}
+
+export { schema, resolvers, loaders }

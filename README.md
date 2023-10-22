@@ -29,4 +29,28 @@ curl --location 'localhost:3000/protected/admin' \
 ```bash
 https://github.com/anapaulalemos/the-graphql-workshop/tree/master/src/step-01-basic
 
+```graphql  
+# http://127.0.0.1:3000/graphql
+query sum {
+	add(x:4, y:5)
+}
+```
+
+### 2. Schema
+```bash
+https://github.com/anapaulalemos/the-graphql-workshop/blob/master/src/step-02-loaders
+```
+```graphql
+# http://127.0.0.1:3000/graphql
+query {
+	pets {
+		name
+		owner {
+			name
+			__typename
+		}
+		__typename
+	}
+}
+
 ```
