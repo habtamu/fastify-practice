@@ -1,7 +1,7 @@
 import Fastify from 'fastify'
 import mercurius from 'mercurius'
-import { typeDefs, resolvers } from './graphql.js'
-import { makeExecutableSchema } from '@graphql-tools/schema'
+import config from './lib/config.js'
+import { schema, resolvers, loaders } from './graphql.js'
 
 export default function buildServer () {
   const server = Fastify({
@@ -15,9 +15,16 @@ export default function buildServer () {
   // comment below line to use graphql
   // server.register(import('./app.js'))
 
+  server.register(import('@fastify/postgres'), {
+    connectionString: config.PG_CONNECTION_STRING
+  })
+
   // uncomment below lines to use graphql
   server.register(mercurius, {
-    schema: makeExecutableSchema({ typeDefs, resolvers })
+    schema,
+    resolvers,
+    loaders,
+    graphiql: true
   })
 
   return server
