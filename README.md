@@ -1,11 +1,13 @@
 # fastify-practice
 
-## Api Endpoints GET /
+## REST API with Fastify
+
+### Api Endpoints GET /
 ```bash
 curl http://localhost:3000
 ```
 
-## Api Endpoints POST /login
+### Api Endpoints POST /login
 ```bash
 curl --location 'localhost:3000/login' \
 --header 'Content-Type: application/json' \
@@ -15,9 +17,16 @@ curl --location 'localhost:3000/login' \
 }'
 ```
 
-## Api Endpoints GET /protected
+### Api Endpoints GET /protected
 ```bash
 curl --location 'localhost:3000/protected/admin' \
 --header 'Authorization: Bearer <token>'
+
+```
+
+## GraphQL API with Fastify
+### 1. Basic
+```bash
+https://github.com/anapaulalemos/the-graphql-workshop/tree/master/src/step-01-basic
 
 ```

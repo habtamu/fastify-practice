@@ -1,14 +1,6 @@
-import fastify from 'fastify'
+import buildServer from './index.js'
 
-const app = fastify({
-  logger: {
-    transport: {
-      target: 'pino-pretty'
-    }
-  }
-})
-
-app.register(import('./app.js'))
+const app = buildServer()
 
 const start = async function () {
   try {
