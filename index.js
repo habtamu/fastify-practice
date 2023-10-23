@@ -23,9 +23,6 @@ export default function buildServer () {
   server.register(mercurius, {
     schema,
     resolvers,
-    context: () => ({
-      locale: 'en'
-    }),
     graphiql: true
   })
 
