@@ -196,3 +196,41 @@ query AddQuery($x: Int!, $y: Int!) {
 # variables
 { "x": 4,"y": 5}
 ```
+
+### 7. fragments
+```text
+- create a **user** type with id, name, age and level properties
+- Has two queries, **getNoviceUser** and **getAdvancedUser** which return a user :
+  - **getNoviceUser**  query returns users with level: novice 
+  - **getAdvancedUser** query returns users with level: advance 
+- Query both methods using fragment on the type **user**
+```
+
+
+```bash
+https://github.com/anapaulalemos/the-graphql-workshop/tree/master/src/step-10-fragments
+
+curl --request POST \
+  --url http://localhost:3000/graphql \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"{ getNoviceUsers { ...userFields } getAdvancedUsers { ...userFields } } fragment userFields on User { id  name age level }"}'
+```
+
+
+```graphql
+query GetUsers{
+	getNoviceUsers {
+		...userFields
+	}
+	getAdvancedUsers {
+		...userFields
+	}
+}
+fragment userFields on User {
+	id
+	name
+	age
+	level
+}
+
+```
