@@ -175,10 +175,17 @@ query GetUserByLocale {
 - The **add** is supplied with dynamic parameters ($x: Int!, $y: Int!)
 - The input to the add function should passed as quary variables, eg
 {"x": 4, "y": 5}
+
 ```
 
 ```bash	
 https://github.com/anapaulalemos/the-graphql-workshop/tree/master/src/step-09-variables
+
+
+curl --request POST \
+  --url http://localhost:3000/graphql \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"query AddQuery ($x: Int!, $y: Int!) { add(x: $x, y: $y) }","variables":{"x":4,"y":5},"operationName":"AddQuery"}'
 ```
 
 ```graphql
