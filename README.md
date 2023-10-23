@@ -144,3 +144,28 @@ INNER JOIN pets
 ON pets.owner = owners.id
 AND pets.name = ANY(${petNames})
 ```
+
+### 5. Context
+Context is an object populated at the server level which is made accessible to resolvers. 
+```text
+- Create a **User** type with **name** and **locale** properties
+- Create an in-memory array of **User** with different locales
+- Create a query called **getUserByLocale** returning the first user with **en** locale
+- Set the property **locale: 'en'** in the mercurius context
+- Respond with JSON object
+```
+
+```bash
+https://github.com/anapaulalemos/the-graphql-workshop/tree/master/src/step-05-context
+
+```
+
+```graphql
+query GetUserByLocale {
+	getUserByLocale {
+		name
+	}
+}
+
+
+```

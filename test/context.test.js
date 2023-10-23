@@ -1,17 +1,14 @@
 import { test } from 'tap'
 import buildServer from '../index.js'
 
-test('should return owner of the pet', async t => {
+test('should retrieve correct value from context', async t => {
   const server = buildServer()
 
   await server.ready()
 
   const query = `query {
-      pets {
+      getUserByLocale {
         name
-        owner {
-          name
-        }
       }
     }`
 
@@ -28,19 +25,8 @@ test('should return owner of the pet', async t => {
 
   t.equal(errors, undefined)
   t.strictSame(data, {
-    pets: [
-      {
-        name: 'Max',
-        owner: {
-          name: 'Jennifer'
-        }
-      },
-      {
-        name: 'Charlie',
-        owner: {
-          name: 'Simon'
-        }
-      }
-    ]
+    getUserByLocale: {
+      name: 'Alice'
+    }
   })
 })
